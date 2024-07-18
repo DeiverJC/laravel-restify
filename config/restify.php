@@ -43,9 +43,9 @@ return [
 
         'frontend_app_url' => env('FRONTEND_APP_URL', env('APP_URL')),
 
-        'password_reset_url' => env('FRONTEND_APP_URL').'/password/reset?token={token}&email={email}',
+        'password_reset_url' => env('FRONTEND_APP_URL') . '/password/reset?token={token}&email={email}',
 
-        'user_verify_url' => env('FRONTEND_APP_URL').'/verify/{id}/{emailHash}',
+        'user_verify_url' => env('FRONTEND_APP_URL') . '/verify/{id}/{emailHash}',
 
         'user_model' => "\App\Models\User",
     ],
@@ -95,7 +95,7 @@ return [
 
     'middleware' => [
         'api',
-        //'auth:sanctum',
+        'auth:sanctum',
         DispatchRestifyStartingEvent::class,
         AuthorizeRestify::class,
     ],
