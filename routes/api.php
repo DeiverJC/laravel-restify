@@ -9,6 +9,10 @@ Route::get('/user', function (Request $request) {
 
 Route::restifyAuth();
 
+Route::post('logout', \App\Http\Controllers\Restify\Auth\LogoutController::class)
+    ->middleware('auth:sanctum')
+    ->name('restify.logout');
+
 Route::post('login', \App\Http\Controllers\Restify\Auth\LoginController::class)
     ->middleware('throttle:6,1')
     ->name('restify.login');
